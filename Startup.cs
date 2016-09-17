@@ -13,6 +13,7 @@ using WebApplication.Data;
 using WebApplication.Models;
 using WebApplication.Services;
 
+
 namespace WebApplication
 {
     public class Startup
@@ -42,6 +43,8 @@ namespace WebApplication
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<BloggingContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
